@@ -1,0 +1,219 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Store</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header" class="header">
+      <nav class="nav">
+        <div class="logo">BookStore</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#digital-access">Digital access</a></li>
+          <li><a href="#categories">Books</a></li>
+          <li><a href="#new-releases">New Release</a></li>
+          <li><a href="#newsletter">Contact Us</a></li>
+          <li><a href="#blog-grid">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Ipsum Dolor Si</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
+          mi. Aliquam in hendrerit urna.
+        </p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="hero-images">
+        <img src="{% static 'img/book1.jpg' %}" alt="Book 1" />
+        <img src="{% static 'img/book1.jpg' %}" alt="Book 2" />
+        <img src="{% static 'img/book1.jpg' %}" alt="Book 3" />
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+      <h2>Explore our Top Categories</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="{% static 'img/book1.jpg' %}" alt="Higher Education" />
+          <h3>Higher Education</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="category-card">
+          <img src="{% static 'img/book1.jpg' %}" alt="Management Books" />
+          <h3>Management Books</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="category-card">
+          <img src="{% static 'img/book1.jpg' %}" alt="Engineering Books" />
+          <h3>Engineering Books</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Access Section -->
+    <section id="digital-access" class="digital-access">
+      <div class="content">
+        <h2>Access, Read, Practice & Engage with Digital Content (eBooks)</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <form class="login-form">
+        <h3>Login</h3>
+        <input type="email" placeholder="Email" class="form-input" />
+        <input type="password" placeholder="Password" class="form-input" />
+        <button class="btn">Login</button>
+      </form>
+    </section>
+
+    <!-- New Releases Section -->
+    <section id="new-releases" class="new-releases">
+      <h2>New Release Books</h2>
+      <div class="book-grid">
+        {% for books in books %}
+        <div class="book-card">
+          <img src="{{ books.image }}" alt="Book 1" />
+          <h4>{{books.name}}</h4>
+          <p style="font-size: small">{{books.description}}</p>
+          <span class="price">$ {{books.price}} | {{books.quantity}} </span>
+          <a href="{% url 'books:detail' %}" class="btn">View More</a>
+        </div>
+        {% endfor %}
+      </div>
+      <h2>More Books</h2>
+      <div class="book-grid">
+        {% for books in books %}
+        <div class="book-card">
+          <img src="{{ books.image }}" alt="Book 1" />
+          <h4>{{books.name}}</h4>
+          <p style="font-size: small">{{books.description}}</p>
+          <span class="price">$ {{books.price}} | {{books.quantity}} </span>
+          <a href="{% url 'books:detail' %}" class="btn">View More</a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Featured Book Section -->
+    <section id="featured-book" class="featured-book">
+      <img src="{% static 'img/book1.jpg' %}" alt="Featured Book" />
+      <div class="content">
+        <h2>Featured Book</h2>
+        <h3>Birds Gonna Be Happy</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <span class="price">$45.00</span>
+        <a href="{% url 'books:detail' %}" class="btn">View More</a>
+      </div>
+    </section>
+
+    <!-- Promotion Section -->
+    <section id="promotion" class="promotion">
+      <h2>All books are 50% off now! Don't miss such a deal!</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="stats">
+        <span>768 Days</span>
+        <span>01 Hours</span>
+        <span>55 Min</span>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+      <h2>Subscribe To Our Newsletter</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <form class="newsletter-form">
+        <input
+          type="email"
+          placeholder="Enter Your Email Here"
+          class="form-input"
+        />
+        <button class="btn">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog-grid" class="blog-grid">
+      <div class="blog-card">
+        <img src="{% static 'img/book1.jpg' %}" alt="Blog 1" />
+        <div class="blog-content">
+          <h3>Learn About Our eBook</h3>
+          <p>Lorem ipsum dolor sit amet</p>
+          <a href="{% url 'books:detail' %}" class="view-more">View More</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="{% static 'img/book1.jpg' %}" alt="Blog 2" />
+        <div class="blog-content">
+          <h3>Creative Writing Course</h3>
+          <p>Lorem ipsum dolor sit amet</p>
+          <a href="{% url 'books:detail' %}" class="view-more">View More</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="{% static 'img/book1.jpg' %}" alt="Blog 3" />
+        <div class="blog-content">
+          <h3>Learn About Our eBook</h3>
+          <p>Lorem ipsum dolor sit amet</p>
+          <a href="{% url 'books:detail' %}" class="view-more">View More</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="{% static 'img/book1.jpg' %}" alt="Blog 4" />
+        <div class="blog-content">
+          <h3>Get Started on Your Story</h3>
+          <p>Lorem ipsum dolor sit amet</p>
+          <a href="{% url 'books:detail' %}" class="view-more">View More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Latest News</h3>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press Releases</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
