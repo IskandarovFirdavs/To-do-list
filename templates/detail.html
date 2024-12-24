@@ -5,36 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Featured Book</title>
+    <title>{{ books.name }}</title>
   </head>
   <body>
     <header class="header">
       <nav class="nav">
         <div class="logo">BookStore</div>
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">New Release</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/books/">Books</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
         </ul>
       </nav>
     </header>
     <div class="container">
       <div class="book-cover">
-        <img src="{% static 'img/book1.jpg' %}" alt="Book Cover" />
+        <img src="{{ books.image }}" alt="{{ books.name }}" />
       </div>
       <div class="book-details">
         <span>Featured Book</span>
-        <h2>By Timbur Hood</h2>
-        <div class="book-title">Birds Gonna Be Happy</div>
-        <p class="book-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
-          feugiat amet, libero ipsum enim pharetra hac.
-        </p>
-        <div class="price">$ 45.00</div>
-        <a href="#" class="btn">View More</a>
+        <div class="book-title">{{ books.name }}</div>
+        <p class="book-description">{{ books.description }}</p>
+        <div class="price">$ {{ books.price }}</div>
       </div>
     </div>
   </body>

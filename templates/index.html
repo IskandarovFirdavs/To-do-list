@@ -87,7 +87,9 @@
           <h4>{{books.name}}</h4>
           <p style="font-size: small">{{books.description}}</p>
           <span class="price">$ {{books.price}} | {{books.quantity}} </span>
-          <a href="{% url 'books:detail' %}" class="btn">View More</a>
+          <a href="{% url 'books:book_detail' books.id %}" class="btn"
+            >View More</a
+          >
         </div>
         {% endfor %}
       </div>
