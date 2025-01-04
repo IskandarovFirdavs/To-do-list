@@ -1,9 +1,5 @@
 from django.contrib import admin
-from .models import Books
+from .models import BookModel, AuthorModel
 
-
-class BooksAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'price', 'quantity', 'image')
-
-
-admin.site.register(Books, BooksAdmin)
+admin.site.register(BookModel)
+admin.site.register(AuthorModel)

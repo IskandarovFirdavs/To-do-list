@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>{{ books.name }}</title>
+    <title>{{ book.title }}</title>
   </head>
   <body>
     <header class="header">
@@ -21,13 +21,13 @@
     </header>
     <div class="container">
       <div class="book-cover">
-        <img src="{{ books.image }}" alt="{{ books.name }}" />
+        <img src="{{ book.image.url }}" alt="{{ book.title }}" />
       </div>
       <div class="book-details">
         <span>Featured Book</span>
-        <div class="book-title">{{ books.name }}</div>
-        <p class="book-description">{{ books.description }}</p>
-        <div class="price">$ {{ books.price }}</div>
+        <div class="book-title">{{ book.title }}</div>
+        <p class="book-description">{{ book.long_description }}</p>
+        <div class="price">${{ book.price }}</div>
       </div>
     </div>
   </body>

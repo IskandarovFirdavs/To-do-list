@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     # Installed apps
 
     # my apps
-    'books.apps.BooksConfig',
+    'books',
 ]
 
 MIDDLEWARE = [
