@@ -1,0 +1,19 @@
+1. Texnik zadatni o‘rganish  
+Muhim malumotlarni aniqlash (atributlar, boglanishlar)  
+models.py da kerakli va asosiy `Model` larni yaratish  
+ForiegnKey, ManyToManyField, OneToOneField larni to‘g‘ri ishlatish  
+makemigrations va migrate bajarish  
+
+2.  django.contrib.auth` dan foydalanish  
+User` modelini `AbstractUser` yoki `AbstractBaseUser` bilan o‘zgartirish  
+authenticate`, `login`, `logout` funksiyalaridan foydalanish  
+django-allauth`dek kutubxonalarni qo‘shish  
+
+3.  path()ni include() bilan ishlatish  
+View funksiyalarni class-based views orqali yozish  
+get_object_or_404 dan foydalanish  
+urls.py` da umumiy qismni `app_name` bilan sortirovka qilish  
+
+4. admin.site.register(Model, ModelAdmin)` orqali model qo‘shish  
+list_display`, `list_filter`, `search_fields` kabi parametrlarni qo‘shish  
+inlines` yordamida bog‘liq modellarga o‘zgarish kiritish  
