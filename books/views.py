@@ -16,8 +16,8 @@ def index(request):
         Todo.objects.create(name=name, price=price, description=description, completed=False)
         return redirect("index")
 
-    todos = Todo.objects.all()
-    return render(request, "index.html", {"todos": todos})
+    tasks = Todo.objects.order_by('-id')[:5]
+    return render(request, 'index.html', {'tasks': tasks})
 
 
 
