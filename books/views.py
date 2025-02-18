@@ -5,26 +5,20 @@ from .forms import TodoForm
 
 @login_required
 def index(request):
-    if not request.user.is_authenticated:
-        return redirect("login")  
+    if request.method == "POST":
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        description = request.POST.get("description")  
 
-    # todos = Todo.objects.filter(user=request.user)
-    todos = Todo.objects.filter(user=request.user).order_by('-id')[:5]  
-    form = TodoForm()
+        if price:
+            price = float(price)  
 
-    if request.method == 'POST':
-        form = TodoForm(request.POST)
-        if form.is_valid():
-            todo = form.save(commit=False)
-            todo.user = request.user 
-            todo.save()
-            return redirect("index")
+        Todo.objects.create(name=name, price=price, description=description, completed=False)
+        return redirect("index")
 
-    context = {
-        'todos': todos,
-        'form': form
-    }
-    return render(request, 'index.html', context)
+    todos = Todo.objects.all()
+    return render(request, "index.html", {"todos": todos})
+
 
 
 @login_required
