@@ -108,7 +108,7 @@
         type="text"
         id="name"
         name="name"
-        placeholder="Enter task..."
+        placeholder="Enter task.."
         required
       />
 
@@ -117,7 +117,7 @@
         type="number"
         id="price"
         name="price"
-        placeholder="Enter price (optional)"
+        placeholder="Enter price (taxminiy)"
         step="0.01"
       />
 
@@ -125,7 +125,7 @@
       <textarea
         id="description"
         name="description"
-        placeholder="Enter description (optional)"
+        placeholder="Enter description (taxminiy)"
         rows="4"
       ></textarea>
 
@@ -134,7 +134,7 @@
 
     <ul>
       {% if tasks %} {% for task in tasks %}
-      <li>{{ task.name }} - 💰 {{ task.price|default:"No price" }}</li>
+      <li>{{ task.name }} - 💰 {{ task.price|default:"Narx yuda bro" }}</li>
       {% endfor %} {% else %}
       <li>No tasks available</li>
       {% endif %}
