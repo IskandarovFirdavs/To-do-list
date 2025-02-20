@@ -1,10 +1,20 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Todo
 from .forms import TodoForm
+from django.shortcuts import get_object_or_404
+from users.models import UserModel
 
 @login_required
 def index(request):
+    user = get_object_or_404(UserModel, username=request.user.username)
+    all_tasks = user.tasks.order_by('-pk')
+
+    paginator = Paginator(all_tasks, 5)  
+    page_number = request.GET.get('page')
+    tasks = paginator.get_page(page_number)
+
     if request.method == "POST":
         name = request.POST.get("name")
         price = request.POST.get("price")
@@ -13,11 +23,11 @@ def index(request):
         if price:
             price = float(price)  
 
-        Todo.objects.create(name=name, price=price, description=description, completed=False)
+        Todo.objects.create(user=user, name=name, price=price, description=description, completed=False)
         return redirect("index")
 
-    tasks = Todo.objects.order_by('-id')[:5]
     return render(request, 'index.html', {'tasks': tasks})
+
 
 
 
